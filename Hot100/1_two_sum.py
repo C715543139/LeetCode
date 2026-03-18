@@ -1,4 +1,4 @@
-from ast import List
+from typing import List
 
 
 class Solution:
@@ -9,4 +9,4 @@ class Solution:
             if numToFind in numsForCandidate:
                 return [numsForCandidate[numToFind], i]
             numsForCandidate[num] = i
-        return None
+        return []
