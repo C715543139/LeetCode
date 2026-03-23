@@ -13,6 +13,7 @@ class Solution:
 
         return list(groupMap.values())
 
+
 class Solution2:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         groupMap: Dict[tuple[int, ...], List[str]] = dict()
