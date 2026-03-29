@@ -4,3 +4,4 @@ project(Hot100)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(238_product_of_array_except_self 238_product_of_array_except_self.cpp)
+add_executable(41_first_missing_positive 41_first_missing_positive.cpp)
