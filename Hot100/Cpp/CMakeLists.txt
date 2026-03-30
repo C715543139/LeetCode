@@ -5,3 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(238_product_of_array_except_self 238_product_of_array_except_self.cpp)
 add_executable(41_first_missing_positive 41_first_missing_positive.cpp)
+add_executable(73_set_matrix_zeroes 73_set_matrix_zeroes.cpp)
+add_executable(54_spiral_matrix 54_spiral_matrix.cpp)
+add_executable(48_rotate_image 48_rotate_image.cpp)
+add_executable(240_search_a_2d_matrix_ii 240_search_a_2d_matrix_ii.cpp)
