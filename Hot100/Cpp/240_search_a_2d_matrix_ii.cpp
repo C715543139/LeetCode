@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int> > &matrix, int target) {
+    bool searchMatrix(vector<vector<int>> &matrix, int target) {
         int m = matrix.size(), n = matrix[0].size();
         int p = 0, q = 0;
         while (true) {
@@ -12,7 +12,7 @@ public:
                 return true;
             }
             if (matrix[p][q] > target) {
-                if (matrix[p][0] > target && matrix[0][q] > target ) {
+                if (matrix[p][0] > target && matrix[0][q] > target) {
                     return false;
                 }
                 for (int row = 0; row < p; row++) {
@@ -40,12 +40,32 @@ public:
     }
 };
 
+class Solution2 {
+public:
+    bool searchMatrix(vector<vector<int>> &matrix, int target) {
+        int m = matrix.size(), n = matrix[0].size();
+        int p = 0, q = n - 1;
+        while (p >= 0 && p <= m - 1 && q >= 0 && q <= n - 1) {
+            if (matrix[p][q] == target) {
+                return true;
+            }
+
+            if (matrix[p][q] > target) {
+                q--;
+            } else if (matrix[p][q] < target) {
+                p++;
+            }
+        }
+        return false;
+    }
+};
+
 int main() {
     vector<vector<int>> matrix = {
         {1, 4, 7, 11, 15},
         {10, 13, 14, 17, 24},
         {18, 21, 23, 26, 30}
     };
-    cout << Solution().searchMatrix(matrix, 15) << endl;
+    cout << Solution2().searchMatrix(matrix, 125) << endl;
     return 0;
 }
