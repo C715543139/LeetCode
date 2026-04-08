@@ -1,7 +1,10 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.22.1)
 project(Hot100)
 
 set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
 
 add_executable(2_add_two_numbers 2_add_two_numbers.cpp)
 add_executable(19_remove_nth_node_from_end_of_list 19_remove_nth_node_from_end_of_list.cpp)
@@ -45,3 +48,7 @@ add_executable(208_implement_trie_prefix_tree 208_implement_trie_prefix_tree.cpp
 add_executable(46_permutations 46_permutations.cpp)
 add_executable(78_subsets 78_subsets.cpp)
 add_executable(17_letter_combinations_of_a_phone_number 17_letter_combinations_of_a_phone_number.cpp)
+add_executable(39_combination_sum 39_combination_sum.cpp)
+add_executable(22_generate_parentheses 22_generate_parentheses.cpp)
+add_executable(79_word_search 79_word_search.cpp)
+add_executable(131_palindrome_partitioning 131_palindrome_partitioning.cpp)
