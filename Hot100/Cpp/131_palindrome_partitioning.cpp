@@ -42,8 +42,59 @@ public:
     }
 };
 
+class Solution2 {
+public:
+    vector<vector<string>> res;
+    vector<vector<int>> flag;
+    string S;
+    int len;
+
+    vector<vector<string>> partition(string s) {
+        S = s;
+        len = s.size();
+        flag = vector(len, vector(len, 2));
+        vector<string> built;
+        build(built, 0, 0);
+        return res;
+    }
+
+    void build(vector<string> &built, int start, int index) {
+        if (start + index == len - 1) {
+            if (check(start, start + index)) {
+                built.push_back(S.substr(start, index + 1));
+                res.push_back(built);
+                built.pop_back();
+            }
+            return;
+        }
+        if (check(start, start + index)) {
+            build(built, start, index + 1);
+
+            built.push_back(S.substr(start, index + 1));
+            build(built, start + index + 1, 0);
+            built.pop_back();
+        } else {
+            build(built, start, index + 1);
+        }
+    }
+
+    bool check(int i, int j) {
+        if (flag[i][j] != 2) {
+            return flag[i][j];
+        }
+        for (int k = 0; i + k < j - k; k++) {
+            if (S[i + k] != S[j - k]) {
+                flag[i][j] = 0;
+                return false;
+            }
+        }
+        flag[i][j] = 1;
+        return true;
+    }
+};
+
 int main() {
-    auto s = string{"aabcddfffwdadasssa"};
-    Solution().partition(s);
+    auto s = string{"aab"};
+    Solution2().partition(s);
     return 0;
 }
