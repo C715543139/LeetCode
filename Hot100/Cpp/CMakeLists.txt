@@ -61,3 +61,4 @@ add_executable(153_find_minimum_in_rotated_sorted_array 153_find_minimum_in_rota
 add_executable(4_median_of_two_sorted_arrays 4_median_of_two_sorted_arrays.cpp)
 add_executable(20_valid_parentheses 20_valid_parentheses.cpp)
 add_executable(155_min_stack 155_min_stack.cpp)
+add_executable(394_decode_string 394_decode_string.cpp)
