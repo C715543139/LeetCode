@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <deque>
 #include <iostream>
 #include <map>
@@ -55,8 +56,67 @@ public:
     }
 };
 
+class Solution2 {
+    // 合并区间
+public:
+    vector<int> partitionLabels(string s) {
+        unordered_map<char, pair<int, int>> mp;
+        for (int i = 0; i < s.size(); ++i) {
+            char c = s[i];
+            if (mp.count(c) == 0) {
+                mp.emplace(c, make_pair(i, i));
+            } else {
+                mp[c].second = i;
+            }
+        }
+
+        vector<pair<int, int>> v;
+        v.reserve(mp.size());
+        for (auto &[fst, snd]: mp) {
+            v.push_back(snd);
+        }
+        sort(v.begin(), v.end());
+
+        int begin = v[0].first, end = v[0].second;
+        vector res{end - begin + 1};
+        for (int i = 1; i < v.size(); ++i) {
+            int newBegin = v[i].first, newEnd = v[i].second;
+            if (newBegin < end) {
+                end = max(end, newEnd);
+                res.back() = end - begin + 1;
+            } else {
+                begin = newBegin;
+                end = newEnd;
+                res.push_back(end - begin + 1);
+            }
+        }
+        return res;
+    }
+};
+
+class Solution3 {
+public:
+    vector<int> partitionLabels(string s) {
+        vector lastPos(128, 0);
+        for (int i = 0; i < s.size(); ++i) {
+            lastPos[s[i]] = i;
+        }
+
+        int begin = 0, end = 0;
+        vector<int> res;
+        for (int i = 0; i < s.size(); ++i) {
+            end = max(end, lastPos[s[i]]);
+            if (i == end) {
+                res.push_back(end - begin + 1);
+                begin = end + 1;
+            }
+        }
+        return res;
+    }
+};
+
 int main() {
-    string s = {"qiejxqfnqceocmy"};
-    Solution().partitionLabels(s);
+    string s = {"ababcbacadefegdehijhklij"};
+    Solution3().partitionLabels(s);
     return 0;
 }

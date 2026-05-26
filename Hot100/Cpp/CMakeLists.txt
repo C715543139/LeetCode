@@ -71,3 +71,5 @@ add_executable(121_best_time_to_buy_and_sell_stock 121_best_time_to_buy_and_sell
 add_executable(55_jump_game 55_jump_game.cpp)
 add_executable(45_jump_game_ii 45_jump_game_ii.cpp)
 add_executable(763_partition_labels 763_partition_labels.cpp)
+add_executable(70_climbing_stairs 70_climbing_stairs.cpp)
+add_executable(118_pascals_triangle 118_pascals_triangle.cpp)
