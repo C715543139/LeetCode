@@ -83,3 +83,6 @@ add_executable(416_partition_equal_subset_sum 416_partition_equal_subset_sum.cpp
 add_executable(32_longest_valid_parentheses 32_longest_valid_parentheses.cpp)
 add_executable(62_unique_paths 62_unique_paths.cpp)
 add_executable(64_minimum_path_sum 64_minimum_path_sum.cpp)
+add_executable(5_longest_palindromic_substring 5_longest_palindromic_substring.cpp)
+add_executable(1143_longest_common_subsequence 1143_longest_common_subsequence.cpp)
+add_executable(72_edit_distance 72_edit_distance.cpp)
